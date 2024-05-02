@@ -1,0 +1,23 @@
+\babel@toc {portuguese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{1\hspace {1em}Lancement et suivi de la nouvelle interface de support client}{1}{mychaptercounter.1}%
+\contentsline {section}{\numberline {1.1}Ouverture de l'interface}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Envoi des identifiants aux clients}{2}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Changement du comportement de l'application}{2}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Redirection du site support}{2}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Vérifications après bascule}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Erreurs apprises}{3}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Mots de passe complexes}{3}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Cache des navigateurs clients}{3}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Un lien n'est pas un mot de passe}{4}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Lexique technique envers les clients}{4}{subsection.1.3.4}%
+\contentsline {chapter}{2\hspace {1em}Assainissement des VLANs du data centre de Dax}{5}{mychaptercounter.2}%
+\contentsline {section}{\numberline {2.1}Fonctionnement du protocole VTP}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}L'infrastructure VTP actuelle}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Relevé et changement des syntaxes des VLANs}{6}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Essais en laboratoire}{7}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Plan de modification}{7}{section.2.4}%
+\contentsline {chapter}{3\hspace {1em}Avancements sur l'étude d'une nouvelle solution pour la supervision}{8}{mychaptercounter.3}%
+\contentsline {section}{\numberline {3.1}Apprentissage et déploiement de Zabbix}{8}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Prise en main}{9}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Haute disponibilité}{10}{subsection.3.1.2}%

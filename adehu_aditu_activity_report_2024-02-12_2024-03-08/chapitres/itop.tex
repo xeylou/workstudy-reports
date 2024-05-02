@@ -1,0 +1,85 @@
+\renewcommand{\figurename}{}
+\mychapter{Lancement et suivi de la nouvelle interface de support client}{cap:itop} 
+\lhead{Lancement et suivi de la nouvelle interface de support client}
+
+Hormis des vérifications sur son fonctionnement à mon arrivée, je devais déployer la nouvelle solution de support la première semaine de cette quatrième période. La mise en production de l'application s'est déroulée en trois jours, avec un entretien quotidien qui a duré plus d'une semaine.
+\\ \\
+Les clients ont l'habitude de faire des retours sur les solutions qu'ils utilisent, et pendant les jours qui ont suivi la bascule; j'ai compris que la solution de support ne faisait pas exception à cette règle. Le plus grand inconvénient pour eux, de ce que j'ai compris à mon humble échelle, est de devoir s'en accoutumer pour travailler. Ainsi, je me suis rendu compte des erreurs que j'ai pu faire en voyant leurs retours.
+
+% ouverture de l'interface
+% - changement de l'enregistrement dns
+% - changement dans la configuration d'iTop
+% - envoi du message aux clients avec leurs identifiants
+% vérification supplémentaires (whatismydns...)
+
+\section{Ouverture de l'interface}
+
+Les clients ont été averti du changement d'interface par des emails sur plusieurs semaines. Le mercredi de la semaine du déploiement, ils ont reçu un email avec leurs identifiants de connexion pour un lancement prévu le jeudi de la même semaine. L'interface était déjà disponible dès lors qu'ils avaient reçu leur email de connexion.
+\\ \\
+Pour qu'ils s'y connectent, nous avons dû modifier la redirection, dit enregistrement DNS, qui redirigait vers \texttt{support.aditu.fr} pour la nouvelle application. J'ai aussi effectué quelques modifications internes à l'application pour lui permettre d'être appelée depuis ce lien.
+
+\subsection{Envoi des identifiants aux clients}
+
+Un mail courtois fut envoyé à tous les contacts informatiques de nos clients pour leur annoncer leurs nouveaux identifiants de connexion et l'accessibilité à la nouvelle interface. Il était convenu un déploiement pour le jeudi 15 février, l'interface était disponible depuis le mercredi 12, date d'envoi des identifiants pour les plus impatients.
+
+\subsection{Changement du comportement de l'application}
+
+Des modifications au serveur hébergeant la solution ont été effectuées pour lui permettre d'être contacté depuis l'extérieur avec ce lien, différent de celui utilisé pour les essais. Pareil pour le passage du réseau local du serveur, dès lors utilisé, pour être accessible depuis Internet derrière un pare-feu. ESur celui-ci ont été configurées des règles dans le détécteur d'intrusions et de la translatation d'adresses pour l'accessibilité depuis l'extérieur.
+
+\subsection{Redirection du site support}
+
+Un serveur chez ADITU retranscrit les adresses des serveurs contactés pour nos services en \texttt{aditu.fr}. Ainsi, lorsque vous renseignez \texttt{www.aditu.fr}, vous atteignez notre serveur WEB sans avoir à connaitre son emplacement sur Internet car ce serveur spécifique vous indique son adresse, ici IP, à interroger pour y accéder.
+\\ \\
+Nous avons après la bascule modifié une entrée sur ce serveur pour modifier le serveur contacté lorsque vous renseignez \texttt{support.aditu.fr}, qui redirige désormais vers la nouvelle solution.
+
+\section{Vérifications après bascule}
+
+Le soir de la bascule, je faisais les dernières vérifications avant le jour J. Même si je les avais déjà faites en interne, il était pour moi impératif de les revérifier une fois l'application déployée.
+\\ \\
+Cette série de tests consistait à vérifier la redirection vers l'application, les informations qui y transitaient à travers les navigateurs des clients et à vérifier la connexion aux comptes clients et à la base de données.
+\\ \\
+Aussi à vérifier les fonctionnalités proposées aux clients, en simulant leur activité sur la plateforme.
+
+\section{Erreurs apprises}
+
+Grâce aux retours sur l'application, j'ai pu me rendre compte de mes erreurs; que je m'efforcerai de me rappeler et à ne pas reproduire pour d'autres déploiements et intéractions clients par la suite.
+
+\subsection{Mots de passe complexes}
+
+Ma première erreur fut dans le choix des mots de passe que j'ai attribué par défaut aux utilisateurs. J'ai préféré en générer un aléatoire et complexe pour leur première connexion, les clients ayant la possibilité de le changer par la suite dans l'interface.
+\\ \\
+Question sécurité, cela me paraissait être une bonne pratique. Par contre, question practicité c'était infâme pour les personnes novices en informatique. Les mots de passe alphanumériques avec des caractères spéciaux non communs (apostrophes inversées, symbole paragraphe, anti-slash...) ne les réussissait pas du tout.
+\\ \\
+Ils pouvaient bien-sûr le copier avec leur souris puis le coller dans le champ où leur mot de passe était demandé. Cependant ceci peut ne pas être un réflexe pour les novices en informatique.
+\\ \\
+Ainsi, j'ai appris qu'il faut vraiment réfléchir au plus simple quant à l'interfaçage utilisateur, en prenant parfois parti de négliger l'aspect sécuritaire. Des mots de passe trop complexes décourragent les utilisateurs non avancés et leur fera préférer un retour à l'ancienne interface juste par ce jugement, préférant la simplicité et le bénéfice de savoir l'utiliser à l'inconvénient de devoir apprendre à utiliser la nouvelle sur leur temps de travail.
+
+\subsection{Cache des navigateurs clients}
+
+Ce problème ne m'est survenu qu'une fois et ne fut pas très embêtant à première augure, mais il mérite son attention, pouvant être source de nombreuses heures de malheurs si oublié.
+\\ \\
+Un client nous a appelé par téléphone pour nous informer qu'il n'arrivait pas à accéder à la page de connexion de l'interface de support. Il était au informé du changement de l'interface et en conséquent, celui-ci se questionnait sur le fait que celle-ci soit vraiment nécessaire, étant donné qu'il ne pouvait plus y accéder : il aurait continuer avec l'ancienne.
+\\ \\
+Or, je savais que celle-ci fonctionnait depuis une semaine ou plus. En l'assistant sur son poste par un contrôle à distance, je me suis rendu compte que son navigateur (Chrome) avait conservé les anciens cookies, informations mises en caches et celles de connexion de l'ancienne interface.
+\\ \\
+L'utilisateur avait pour habitude de laisser constamment son ordinateur allumé, et donc son navigateur, en conservant ses informations de connexion dedans. Au moment où il tentait d'accéder à l'interface de support, son navigateur essayait de rejouer les informations conservées de l'ancienne interface sans réussir retournant une erreur.
+\\ \\
+Il fallut fermer puis réouvrir son navigateur pour que celui-ci supprime certaines informations conservées, qui furent celles qui étaient rejouées et défaillantes.
+
+\subsection{Un lien n'est pas un mot de passe}
+
+Dans mon processus de distribution des identifiants, au lieu de transférer les mots de passe par email : j'indiquais que ceux-ci était accessibles en suivant un lien. Ce qui évite que si la boite mail d'un client soit compromise par un attaquant, que celui-ci puisse retrouver des identifiants de connexion pour les réutiliser ou les essayer sur d'autres services.
+\\ \\
+Cependant, certains clients comprennaient que leur mot de passe était ce lien, et le copiait dans le champ attendu de leur mot de passe. L'histoire du "lien vers le mot de passe" plutôt que le "mot de passe"...
+\\ \\
+La prochaine fois que je communiquerai des informations de connexion ou d'identification, je ferai en sorte d'attirer le regard du destinataire vers des lignes précisant le plus simplement possible comment accéder au lien pour récupérer les informations souhaitées.
+
+\subsection{Lexique technique envers les clients}
+
+Pour le renseignement de demandes utilisateurs ou d'incidents, les clients passent par une suite d'étiquettes pour leur faciliter l'accomodation à l'interface. Ainsi, ils ont premièrement deux choix : "Demande" ou "Incident", puis ils précisent un service impacté ("Messagerie", "Sauvegarde"...) avec à chaque fois une description.
+\\ \\
+Le problème n'a pas été remonté par un client mais par David : il faut utiliser les mots qui font le plus de sens aux clients lorsqu'ils veulent faire leur demande, plutôt que ceux les plus justes. Auquel cas, ceux-ci pourront prendre plus de temps à choisir dans quel "entonnoir" rentrer, ou renseigner un mauvais service etc.
+\\ \\
+Lorsque je communique avec les clients désormais, je m'efforce d'expliquer les choses avec leurs mots plutôt que les miens, même si ceux que j'utilise sont les mots justes ou adéquats.
+
+%mettre des mots technique pour les clients sur les étiquettes de connexion

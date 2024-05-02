@@ -1,0 +1,36 @@
+\renewcommand{\figurename}{}
+\mychapter{R3.02 Réseaux d'Opérateur (22h30)}{cap:r302} 
+\lhead{R3.02 Réseaux d'Opérateur (22h30)}
+% tunnel gre et ipsec
+% ospf et ospfv2avec priorisation
+% routage inter-vlan avec détection des problèmes
+
+\vspace*{0.2cm}%
+      \large
+      \href{}{\color{black}Enseignant\\M. Philippe Arnould}\\%
+      \normalsize
+\vspace*{0.5cm}%
+
+Ce module consacré au réseau, complémenté par le module R3.07, nous ont fait étudier des technologies relatives aux réseaux d'opérateurs. Parmis eux dans ce module, le protocole de routage dynamique OSPFv2, le routage inter-vlan, les tunnels inter-réseaux GRE et les VPN IPsec.
+\\ \\
+L'enseignement se décomposait en séries de laboratoires Cisco que nous devions rendre à la fin des semaines.
+
+\section{Le routage inter-vlan}
+
+Le routage de VLANs \textit{Réseaux locaux virtuels} avait déjà été abordé dans le module R3.01. Il a été repris pour nous consolider avec la notion de routage inter-vlans on stick - utilisation d'un lien trunk pour transporter les VLANs.
+\\ \\
+Nous avons pu rechercher des indices de malfonctionnement d'une structure, en la réparant par la suite pour nous assurer que nous étions à l'aise avec le routage inter-vlan. Nous l'avons aussi déployé dans différent scénarios selon différents besoins.
+
+\section{Routage dynamique avec OSPFv2}
+
+Le protocole OSPF a été repris du module R3.01 et vu sous un autre angle. Toujours avec des laboratoires Cisco, nous avons étudié des parties spécifiques du protocole (messages "HELLO", intervale des messages...) et encore une fois dépanné plusieurs scénarios de malfonctionnement.
+
+\section{Tunnels entre réseaux et Réseaux Privés Virtuels}
+
+Nous avons abordés les VPN, ou \textit{Réseaux Privés Virtuels}, en étudiant le protocole IPsec. Celui-ci est une suite d'algorithmes et de protocoles permettant la création de tunnels chiffrés virtuels entre deux réseaux séparés sur Internet.
+\\ \\
+IPsec utilise notamment IKEv2 pour l'échange de clés entre les deux sites. Une fois les clés échangées, IPsec rencapsule les paquets IP à destination du site distant pour rajouter des entêtes comme ESP ou AH \textit{Entêtes d'Authentification} afin de garantir l'intégrité et la confidentialité des données.
+\\ \\
+Nous avons aussi vu les tunnels GRE \textit{Encapsulation de routage générique} qui permettent de nous simuler comme si nous étions dans le réseau distant à l'autre bout du tunnel. 
+\\
+Nous avons abordé les deux notions ensemble, et vu que les tunnels GRE pouvaient être encapsulés dans IPsec, pour intégrer le réseau local du site distant avec les avantages d'IPsec.

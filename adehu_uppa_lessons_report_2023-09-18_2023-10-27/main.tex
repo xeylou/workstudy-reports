@@ -1,0 +1,68 @@
+\documentclass[tcc]{ic}
+
+\hypersetup{
+    colorlinks = {true},
+    linktocpage = {false},
+    plainpages = {false},
+    linkcolor = {Blue},
+    citecolor = {Blue},
+    urlcolor = {Red},
+    unicode = {true},
+    pdftitle = {Rapport des enseignements à l'IUT UPPA 18/09/2023-10/27/2023}, 
+    pdfauthor = {Alexis Déhu},
+    pdfsubject = {Période du 18-09-2023 au 27-10-2023},
+    pdfkeywords = {activités, alternance, iut, but, rt, aditu, uppa, pau, bidart}
+}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[graphicx]{realboxes}
+\usepackage{rotating}
+\usepackage{lscape}
+
+\makeatletter
+\renewcommand{\ALG@name}{Algoritmo}
+\renewcommand{\listalgorithmname}{List of \ALG@name s}
+\makeatother
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\begin{document}
+
+    % Inclui o preâmbulo do documento (Informações da capa e contracapa)
+    \include{avant-texte/preambule}
+
+    \selectlanguage{english}
+    
+    % Capa, contracapa e avaliadores
+    \capa
+
+    % \aprovacao
+    
+    % Agradecimentos
+    % \include{pre-textuais/agradecimentos}
+    
+    % Resumo e Abstract
+    \include{avant-texte/resume}
+    
+    % Sumário
+    \renewcommand*\contentsname{Table des matières}
+    \tableofcontents
+    \thispagestyle{empty}
+    
+    % Início dos capítulos
+    \inicio
+    
+    \include{sections/r3c16}
+    \include{sections/r3r16}
+    \include{sections/r301}
+    \include{sections/r303}
+    \include{sections/r304}
+    \include{sections/r305}
+    \include{sections/r307}
+    \include{sections/r308}
+    \include{sections/r310}
+    \include{sections/r312}
+    \include{sections/annexes}
+
+\end{document}

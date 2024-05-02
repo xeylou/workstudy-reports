@@ -1,0 +1,13 @@
+\babel@toc {portuguese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{1\hspace {1em}Étude d'une nouvelle solution de communication cliente}{1}{mychaptercounter.1}%
+\contentsline {section}{\numberline {1.1}Pourquoi un changement de solution}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Les attendus des partis}{2}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Les attendus mes collègues}{2}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Les attendus de nos clients}{2}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Les solutions étudiées}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Une première approche en laboratoire}{3}{section.1.4}%
+\contentsline {section}{\numberline {1.5}L'étude comparative}{3}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Premiers pas dans l'intégration}{4}{section.1.6}%
+\contentsline {chapter}{2\hspace {1em}Annexes}{5}{mychaptercounter.2}%
+\contentsline {section}{\numberline {2.1}Cahier des charge Ticketing}{5}{section.2.1}%

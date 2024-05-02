@@ -1,0 +1,21 @@
+\babel@toc {portuguese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{1\hspace {1em}Préparation de la solution de communication client}{1}{mychaptercounter.1}%
+\contentsline {section}{\numberline {1.1}Mise en relation des connaissances et des documents clients}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Première communication aux clients du changement}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Inspections et modifications après absence}{2}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Tests de fonctionnement}{2}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Définition d'une FAQ/KB}{4}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Application d'un test de charge}{5}{subsection.1.3.3}%
+\contentsline {chapter}{2\hspace {1em}Commencement de l'étude pour une nouvelle solution de supervision}{6}{mychaptercounter.2}%
+\contentsline {section}{\numberline {2.1}Pourquoi un changement de supervision}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Inspection du fonctionnement et de l'état de l'ancienne solution}{7}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Apprentissage et documentation des principes de supervision}{7}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Supervision passive et active}{8}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}L'alerting, la supervision et les statistiques}{9}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Maintient de la charge, rétention, expansibilité et distributivité}{10}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Premières intégrations et études comparatives}{11}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Mise en étude des solutions}{11}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Point rapide sur chacune des solutions testées}{11}{subsection.2.4.2}%
+\contentsline {chapter}{3\hspace {1em}Annexes}{13}{mychaptercounter.3}%
+\contentsline {section}{\numberline {3.1}Cahier des charges supervision}{13}{section.3.1}%
