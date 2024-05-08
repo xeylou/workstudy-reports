@@ -1,0 +1,25 @@
+\renewcommand{\figurename}{}
+\mychapter{R4.01 Infrastructures de sécurité (16h30)}{cap:r3rom16} 
+\lhead{R4.01 Infrastructures de sécurité (16h30)}
+
+\vspace*{0.2cm}%
+      \large
+      \href{}{\color{black}Enseignant\\M. Laurent Gallon}\\%
+      \normalsize
+\vspace*{0.5cm}%
+
+Présent dans le tronc commun mais faisant appel aux notions de notre parcours Cybersécurité, le module Infrastructures de sécurité nous a plongé dans le fonctionnement des chiffrements de nos données et à la découverte des équipements et des principes de sécurité permettant la sécurisation de nos transmissions et des infrastrctures.
+\\ \\
+Ainsi, nous avons abordés l'ensemble des informations permettant la compréhension des mécanismes de filtrage et de contrôle des accès d'un réseau, les bases de la cryptographie, ainsi que les services, applications et infrastructures pour la sécurité.
+
+\section{Enseignement et manipulation de pare-feux}
+
+Nous avons pu voir en détail les métholodologies d'approche des règles d'un pare-feux, à mémoire d'états ou non. Un pare-feu se définit comme un équipement régissant les flux d'accès dans un réseau : telle personne a le droit d'accéder à cette ressource, celle-ci ne doit pas y accéder ou n'a pas besoin de cet accès...
+\\ \\
+Un pare-feu matériel n'est pas à confondre avec un pare-feu logiciel comme présent sur vos ordinateurs; ceux-ci régissent les activités des programmes installés sur vos machines, un équipement pare-feu régit l'activité d'un réseau pour gérer les flux et les accès.
+\\ \\
+Dans cette vision, nous avons élaboré des stratégies de sécurisation d'entreprises à moyenne et grande échelle. Nous y avons vu la réflexion derrière la confection d'un tableau de gestion d'accès, et son implémentation sur une machine pare-feu GNU/Linux.
+\\ \\
+Plusieurs notions avancées ont été couvert comme les DMZ \textit{zones démilitarisées} pour laisser une activité extérieure accéder à certaines ressources en dehors du réseau d'entreprise (dans le cas d'un hébergement dans les locaux d'un site WEB, d'une application métier...). Nous avons aussi couvert le NAT \textit{translatation d'adresses}, les ACL \textit{règles d'accès} et les firewall-proxy pour restreindre les applications dans leur fonctionnement sur le réseau.
+\\ \\
+Nous avons ainsi mis en place lors de travaux pratiques une connexion multi-iste via un réseau d'opérateur avec un accès distant sécurisé, des services réseaux avancées; tout cela en mettant en place une politique de sécurisation et de contrôles d'accès via des firewall-proxy.

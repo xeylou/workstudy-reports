@@ -1,0 +1,49 @@
+\renewcommand{\figurename}{}
+\mychapter{Avancements sur l'étude d'une nouvelle solution pour la supervision}{cap:sup} 
+\lhead{Avancements sur l'étude d'une nouvelle solution pour la supervision}
+
+Concernant l'étude d'une nouvelle solution de supervision, ma dernière période s'etait terminée sur l'apprentissage de principes avancés fondamentaux de la supervision d'actifs en entreprise et par une vision d'ensemble des solutions existantes répondantes à nos besoins.
+\\ \\
+J'ai déjà manipulé une des solutions survolées pour un usage personnel et en laboratoire chez Aditu : Nagios. Outil extrêmement efficace pour de l'alerting mais ne proposant rien pour la métrologie dans son coeur.
+\\ \\
+Mon objectif pour cette période est de prendre en main un outil faisant de l'oeil à l'équipe plus que l'ancien Nagios parmis la sélection, et qu'une fois étudié je puisse leur montrer une étude comparative pour commencer mes travaux de migrations de la supervision avec la solution retenue.
+
+\section{Apprentissage et déploiement de Zabbix}
+
+Zabbix est une solution de supervision (monitoring, alerting et métrologie) d'ancienne génération qui essaye de regrouper tout au même endroit (comparé à la nouvelle génération : séparer un maximum les fonctionnalités pour permettre de pouvoir changer les briques qui composent sa solution quand on le souhaite par ce que l'on souhaite sans effort).
+\\ \\
+J'ai durant cette période fait une grande avancée sur l'étude de Zabbix, en apprenant toujours de nouvelles notions et de fonctionnalités en essayant de rechercher des liens entre eux et leur utilité potentielle... J'essayais de comprendre toujours un maximum de celles-ci. J'essaye aussi de documenter au mieux mes efforts et de vouloir rechercher ce que je ne connais pas dans cette solution pour la comprendre au maximum.
+\\ \\
+Certains aspects ne sont pas beaucoup abordés en publique par l'équipe de Zabbix et sur les forums car généralement réservés aux clients du support. Certaines fonctionnalités cruciales pour un data centre ou une ESN se retrouvent alors dans les mains des équipes de Zabbix, qui attendent que l'on vienne leur demander de l'aide pour nous proposer une offre chiffrée de de support.
+\\ \\
+Ce service de support, au delà de l'appel la résolution de problèmes, est constitué de personnes expérimentées dans la supervision et l'administration de serveurs Zabbix pour nous conseiller sur des points importants de notre solution : le dimensionnement de la base de données, interopérabilité avec d'autres outils, développement pour applications métiers, haute disponibilité de l'ensemble...
+\\ \\
+Pour ne pas avoir à souscrire à ce service, je me suis lancé dans la compréhension du fonctionnement de Zabbix avec et sans ces aspects, puis d'essayer de les incorporer d'une manière la plus saine et stable possible.
+
+\subsection{Prise en main}
+
+L'installation d'une infrastructure Zabbix couverte, je me suis tourné vers la prise en main vers des premiers équipements en laboratoire. Sans commencer à voir comment nos équipements actuels pourraient être amenés ou agencés par Zabbix, je souhaitais faire le tour des possibilités d'options à apporter à un équipement dans Zabbix.
+\\ \\
+Une des fonctionnalités les plus intéressantes que j'ai relevé est l'utilisation de l'agent Zabbix sur un hôte dès que possible. Zabbix propose des modèles de gestion pour différents appareils (routeurs Cisco, parefeu PfSense...) en utilisant des protocoles standards, mais il est possible parfois d'installer leur agent pour plus de fonctionnalités.
+\\ \\
+Cet agent permet notamment de lancer des commandes de vérification à distance et d'en récupérer la sortie pour en définir l'état d'un service personnalisé. C'est aussi par cet agent que nous pouvons exécuter une suite de commande à distance si nous connaissons la source d'un problème et sa résolution (pour ne pas devoir intervenir manuellement).
+\\ \\
+La notion de proxy est aussi importante, celle-ci permet d'avoir un réseau de supervision Zabbix dispersé à différents endroits. Plusieurs serveurs Zabbix effectuent les tâches sur leur région seul et partagent uniquement les remontés au serveur Zabbix principal (extrêmement utile pour la répartition de charge).
+
+\subsection{Haute disponibilité}
+
+La haute disponibilité regroupe l'ensemble des pratiques permettant la continuité d'un service pour un ensemble de risques et d'aléas donnés. La haute disponibilité intervient après une étude des risques/aléas d'un système d'informations, proposant un plan d'action pour la mitigation des problèmes engendrés par les éléments de l'étude (malfonctionnement du service, perte de communication, défaillance matérielle ou d'alimentation...).
+\\ \\
+Dans le câdre de notre supervision, nous voulions implémenter de la haute disponibilité pour permettre une redondance du service, une réplication quasi-temps réelle de son fonctionnement et une tolérance à l'erreur accrue.
+\\ \\
+Une grande partie de mon temps lors de cette période a été consacré au montage d'un cluster pour implémenter les fonctionnalités précédemment citées à Zabbix, sans support. Celui-ci est opérationnel mais encore non stable et non mise à l'épreuve. Toute mon avancée a été documentée et répliquée plusieurs fois.
+\\ \\
+Pour ce faire, je me suis servi des outils Corosync et Pacemaker, faisant parfois appel à Heartbeat. Le principe est qu'un service est exécuté en simultané sur plusieurs hôtes (plus de deux) - en exemple, un serveur primaire et un serveur secondaire; base de données, serveur Zabbix...
+\\ \\
+Les serveurs sont vus de l'extérieur comme un seul, ils se partagent une adresse IP flottante d'accès. Par défaut, l'adresse flottante est attribuée au serveur primaire. Si le service n'est plus en fonctionnement sur le serveur primaire : le serveur secondaire prend immédiatement l'adresse flottante pour toujours distribuer le service.
+\\ \\
+Les causes de la bascule peuvent être multiples : panne de courant, plantage du service ou d'un système... Leurs fichiers de configuration pour ces services sont aussi synchronisés entre eux : aucune configuration n'est perdue.
+
+% \subsection{Étude et dimensionnement d'une base de données}
+
+% \section{Prise en main}

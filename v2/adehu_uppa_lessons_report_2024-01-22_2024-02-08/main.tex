@@ -1,0 +1,65 @@
+\documentclass[tcc]{ic}
+
+\hypersetup{
+    colorlinks = {true},
+    linktocpage = {false},
+    plainpages = {false},
+    linkcolor = {Blue},
+    citecolor = {Blue},
+    urlcolor = {Red},
+    unicode = {true},
+    pdftitle = {Rapport des enseignements à l'IUT du 22-01-2024 au 08-02-2024}, 
+    pdfauthor = {Alexis Déhu},
+    pdfsubject = {Rapport de mes enseignements reçus à l'IUT de Mont-de-Marsan pour la deuxième période de ma deuxième année du 22-01-2024 au 08-02-2024},
+    pdfkeywords = {enseignements, apprentissage, alternance, iut, but, rt, uppa, pau, mont, de, marsan, mont-de-marsan}
+}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[graphicx]{realboxes}
+
+\makeatletter
+\renewcommand{\ALG@name}{Algoritmo}
+\renewcommand{\listalgorithmname}{List of \ALG@name s}
+\makeatother
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\begin{document}
+
+    % Inclui o preâmbulo do documento (Informações da capa e contracapa)
+    \include{documents/couverture}
+
+    \selectlanguage{english}
+    
+    % Capa, contracapa e avaliadores
+    \capa
+
+    % \aprovacao
+    
+    % Agradecimentos
+    % \include{pre-textuais/agradecimentos}
+    
+    % Resumo e Abstract
+    \include{documents/resume}
+    %\include{pre-textuais/abstract}
+    
+    % Sumário
+    \renewcommand*\contentsname{Table des matières}
+    \tableofcontents
+    \thispagestyle{empty}
+    
+    % Início dos capítulos
+    \inicio
+    
+    \include{chapitres/r401}
+    \include{chapitres/r403}
+    \include{chapitres/r405}
+    \include{chapitres/r408}
+    \include{chapitres/annexes}
+
+    % Pós Textuais
+    % \nocite{*}
+    % \include{pos-textuais/referencias}
+
+\end{document}

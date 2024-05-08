@@ -1,0 +1,104 @@
+\renewcommand{\figurename}{}
+\mychapter{Commencement de l'étude pour une nouvelle solution de supervision}{cap:commencement_etude_supervision} 
+\lhead{Commencement de l'étude pour une nouvelle solution de supervision}
+
+Un des sujets majeurs de mon alternance était le changement de l'infrastructure de supervision des équipements d'ADITU et de ses clients. Tout l'intérêt était de comprendre pourquoi ce changement devait s'opérer, comprendre l'infrastructure actuelle, assimiler les précédentes et actuelles techniques de supervision pour enfin commencer une étude comparative de solutions.
+\\ \\
+Cette étude et les éléments cités précédemment prendront beaucoup de temps. Dans les faits, c'est aussi un alternant qui a monté la solution de supervision actuelle, il a pris une année pour. Mon tuteur et mon responsable m'ont alors conseillé d'y \textit{"aller en douceur"}, pour prendre le temps de comprendre ce que je faisais et pour fournir une solution propre, pour notamment ne pas revenir sur l'élaboration d'une solution comme je le fais actuellement.
+
+\section{Pourquoi un changement de supervision}
+
+ADITU possède un regroupement de supervisions, toutes d'époques différentes. La première supervision est ancienne, opérationnelle et dédiée aux équipements d'ADITU qui fut par la suite reprise pour y ajouter certains clients. Une deuxième supervision a été initiée par l'alternant, regroupant plusieurs solutions, avec certaines pour afficher des statistiques/graphiques... pour les clients.
+\\ \\
+Le problème de la solution de supervision actuelle est sa disparité (serveurs sur trop de sites différents, trop de solutions différentes sont utilisées...). Sa complexité posant des problèmes lors du maintient, ce qui demande en conséquent beaucoup de temps de travail non valorisé.
+\\ \\
+Par mon arrivée, ADITU s'est voulu reprendre son projet de supervision en unifiant ses structures, en les documentant davantage et en déclarant des procédures finies pour son maintient. En soit, fournir une nouvelle solution de supervision saine, complète, stable et bien documentée.
+
+\section{Inspection du fonctionnement et de l'état des anciennes solutions}
+
+Une partie continue de mon travail était d'étudier les supervisions en place pour comprendre leur fonctionnement (tunnels sécurisés vers les réseaux des clients, applicatifs ou protocoles de supervision utilisés,paramètres renseignés...). Tout ce travail permet aussi de remettre en question les documentations et procédures existantes pour les solutions en place.
+\\ \\
+Pour en comprendre le plus possible sur celles-ci, j'ai dû me former à les utiliser afin de pouvoir le mieux que possible les étudier. Je le faisais en montant des laboratoires, dans lesquels j'installais et apprenais à utiliser et en me documentant sur les intuitions que j'avais. Mon apprentissage passais aussi par la recherche dans le code existant des solutions, pour comprendre leur fonctionne et pourquoi elles l'étaient ainsi. Ainsi, j'essayais d'avoir un point de vue le plus global et précis des solutoions.
+
+% L'état : parce que la solution vie, elle change, elle évolue
+
+\section{Apprentissage et documentation des principes de supervision}
+
+Mon étude de l'infrastructure existante s'est coordonnées à mon apprentissage des principes de supervision en entreprise. Par ceux-ci, je me suis alors récolté une gifle d'humilité en effleurant les aspects à considérer pour les solutions de supervision en milieu professionnel. Ainsi, une autre grande partie de mon exercice était aussi la recherche de fonctionnalités et de mouvements de supervision, en me renseignant un maximum sur les méthodes utilisées, les technologies en vogue, pourquoi, et en les questionnant.
+\\ \\
+Pour la suite de cette section, j'explique certaines notions que je trouvais intéressantes à souligner pour ce document. Un hôte distant/supervisé sera la machine sur laquelle l'on souhaite observer des métriques \textit{informations à superviser}. Pour les données publiques (accessibilité d'un site WEB... accessibile depuis Internet), la collecte de métriques peut se faire sans authentification; pour d'autres informations internes ou sensibles (utilisation des ressources, vérification de configurations...) un agent ou protocole doit être installé ou configuré sur la machine hôte pour communiquer avec la machine de supervision et lui informer à elle seule de ces informations.
+%\\ \\
+%J'expose ici certaines notions que je trouve importantes que j'ai apprises durant cet apprentissage.
+
+\subsection{Supervision passive et active}
+
+Le choix d'une solution de supervision active ou passive peut restreindre le choix final de solutions, définissant la méthodologie d'approche de la supervision des hôtes.
+\\ \\
+Pendant longtemps, la supervision se produisait uniquement dans le sens actif.
+
+\begin{itemize}
+    \item[1.] La machine de supervision initiait une demande pour récupérer les métriques d'un hôte (accessibilité, disponibilité d'un site WEB, charge d'utilisation du processeur...).
+    \item[2.] L'hôte distant, par le biais d'un agent installé ou d'un protocole adapté, renvoyait une réponse à ces demandes (Echo REPLY, status 200 HTTP/S, moyenne d'utilisation des coeurs de son processeur...).
+    \item[3.] La machine de supervision recevait puis interprétait ces informations en (modification de l'état d'un service ou de l'état de l'hôte, remontée d'une alerte...).
+\end{itemize}
+
+\noindent Ce modèle de supervision actif propose un modèle de résolution des métriques proactif (la machine de supervision va chercher l'information, pour attendre son retour et interpréter son résultat). Les problèmes de ce modèle sont qu'une communication dans les deux sens doit être initiée pour toutes les machines à superviser et que la machine de supervision doit planifier ses demandes en plus de traiter les informations qu'elle reçoit par la suite. De plus, les machines distantes ont un port ouvert constamment en écoute, problème pour l'exposition si mal sécurisé ou vulnérabilité découverte.
+\\ \\
+L'agent installé sur l'hôte distant est passif, il ne fait qu'attente les instructions de la machine de supervision. Nous pouvons cependant réfléchir dans l'autre sens, en renvoyant cette fois l'agent installé sur la machine supervisée en actif, la machine de supervision serait passive en attente du signalement. Cela corrige certains problèmes vus précédemment. C'est le principe de la supervision passive (point de vue de la machine supervision).
+\\ \\
+Le modèle de supervision passif se déroulant en suivant.
+
+\begin{itemize}
+    \item[1.] L'agent envoie périodiquement ses métriques à la machine de supervision (accessibilité, disponibilité d'un site WEB, charge d'utilisation du processeur...).
+    \item[2.] La machine de supervision reçoit et interprète ces informations (modification de l'état ou d'un service de l'hôte, remontée d'une alerte...). \textbf{selon qu'elle reçoit ces métriques ou non}.
+\end{itemize}
+
+\noindent Le modèle de supervision passif permet d'initier un communication dans un sens uniquement (réduction du trafic), de protéger les hôtes en n'exposant pas de port (pour en exposer uniquement celui de la machine de supervision uniquement - plus simple à protéger que 500 interfaces d'hôtes, réduisant la surface d'attaque d'un parc...).
+\\ \\
+Cependant, la méthode d'interprétation passe de proactif à réactif (on interprète selon ce qu'on reçoit ou ce que l'on ne reçoit pas). Une décision importante à prendre est de savoir s'il nécessaire d'installer une solution de supervision réactive ou proactive (à définir selon les besoins, l'infrastructure déjà existantes, la disposition des pare-feux pour l'ouverture de port et l'observation du traffic, la criticité de la structure, la sécurité demandée, les actions possibles sur les hôtes...).
+
+\subsection{L'alerting, la supervision et les statistiques}
+
+Lorsque je manipulais des solutions de supervision en essais, en les utilisant et sans le remarquer, celles-ci tendaient à regrouper trois très grandes responsabilités dans leur utilisation. Que sont la supervision des métriques, l'interprétation en graphique et/ou de la corrélation d'événements et l'alerting pour informer les administrateurs des potentiels problèmes.
+\\ \\
+Je n'ai vu qu'extrêmement peu d'articles, de blogs ou de forums remarquer de cette différenciation, même pour ceux les plus récents. L'intérêt des \textit{nouvelles générations de supervision} est de pouvoir changer les briques de sa solution quand on le souhaite et par ce que l'on souhaite, afin d'isoler les responsabilités, de changer uniquement certaines parties sans avoir à changer de solution, être réutilisables etc. En résulte une solution très permissive, tolérante au changement et non restrictive à l'utilisation dû à la sectarisation des responsabilités.
+\\ \\
+Les anciennes solutions de supervision tendent à vouloir tout faire par elles-mêmes (Nagios, Centreon, Checkmk, Zabbix, Icinga, Shinken...). Alors que les solutions en vogues tendent à se spécifier dans leur tâche pour permettre d'être facilement remplacées ou tolérantes aux problèmes, en séparant la métrologie de la collecte d'information, des bases de données... Cela est notamment rendu possible grâce à la démocratisation de l'utilisation de conteneurs, et aux solutions d'orchestration comme Kubernetes pour n'en citer qu'un. Pour ne citer que certaines briques de cette \textit{nouvelle génération} : Prometheus pour l'export des données, Grafana leur interprêtation, InfluxDB une base de donnée spécialisée dans le stockage de métriques, pareil pour Victoria Metrics, Loki pour l'export cette fois des journaux d'activités, Tempo pour la correlation d'événements, Mimir solution de stockage pour Prometheus...
+\\ \\
+En résulte un retour en arrière chez les administrateurs et architectes informatiques et réseaux : ils souhaitaient payer une licence pour tout faire, désormais ils souhaitent avoir leur solution personnalisée à leurs besoins la plus polyvalente possible, en utilisant des outils comem Docker pour leur supervision et pouvoir ajouter ou remplacer des briques comme ils le souhaitent.
+
+\subsection{Maintient de la charge, rétention, expansibilité et distributivité}
+
+Certaines notions sont cruciales pour une solution de supervision en environnement de production : le maintient de la charge d'informations, la rétention des métriques collectées, sa capacité d'expansion et celle à être distribuée en plusieurs endroits en sont des exemples.
+\\ \\
+Il est essentiel pour une supervision de pouvoir interpréter dans un temps imparti les informations qu'elle reçoit : auquel cas, celle-ci créera une pile de métriques en attente de traitement, qui elle-même sera submergée par la quantité de métriques qui arrivera par la suite. Le maintient de la charge désigne toutes les techniques en place pour garantir le traitement de chaque flux de données à tout moment de la journée et de la nuit, selon toutes circonstances (de 1000, 10000 hôtes non réguliers dans la journée). Dans certains cas précis, des administrateurs ne peuvent pas se permettre de ne pas voir certaines informations à cause d'un mauvais dimensionnement.
+\\ \\
+Pour des raisons juridiques et judiciaires, les entreprises du secteur du numérique françaises sont dans l'obligation de journaliser leurs informations en cas d'appel à consultation dans le cadre d'affaires judiciaires, juridiques et autre sur le sol français. En dehors de cette obligation, il est contingeant de prévoir un plan de rétention des informations et métriques collectées pour de l'étude et de la corrélation d'événements, de la comparaison, de la métrologie, et pour l'appel à consultation des utilisateurs (définit par la RGPD \textit{Règlement Général sur la Protection des Données}). Cet aspect n'est à surtout pas négliger pour une entreprise d'hébergement et de prestation de services informatiques comme ADITU.
+\\ \\
+Il est aussi essentiel de penser à l'expansibilité de sa solution de supervision, celle-ci évolue et pourrait être menées à accueillir beaucoup plus d'hôtes à superviser (arrivée d'un client, ajout d'un bâtiment ou expansion...). Une solution de supervision se doit d'être expansible horizontalement (ajout de machines pour de la répartition de charge...) et de proposer si nécessaire un plan de distribution de charge.
+\\ \\
+Certaines solutions, à leur échelle, ont besoin d'être distribuées. Dans l'exemple d'ADITU, celle-ci sera centralisée à Dax dans le data centre de DATA3, mais sera distribuée chez ses clients : une plus petite machine de supervision récupérera les données du réseau local chez un client, pour en envoyer le condensé des métriques récupérées à la machine de supervision centrale à Dax. Cela permettra de ne pas consommer trop de bande passante du réseau client pour Internet, en centralisant et compressant les métriques. Cela garantira aussi l'intégrité des données, restant intactes en cas de coupure d'un lien vers Internet ou une indisponibilté, d'atténuer le problème de latence entre sites et d'initier une vision de distribution de charge - déchargeant petit à petit la supervision centrale du traitement de toutes les données. Cette notion n'est pas discutable pour des solutions de supervision intercontinentales ou internationales.
+
+\section{Premières intégrations et études comparatives}
+
+Un autre moyen d'apprendre continuellement est de le faire par soi est au travers d'un laboratoire pour essayer ses intuitions en prenant main sur les solutions. En appliquant mes idées ou celles d'autres personnes, mon apprentissage s'est enrichi grandement en touchant les problèmes réels que j'aurai pu rencontrer en environnement de production.
+\\ \\
+J'ai trouvé que toutes les solutions étaient extrêmement différentes dans leur fonctionnement, dans leurs fonctionnalités ou dans leur modèle de économique : j'ai décidé de les comparer sur ce qu'on attend d'elles plutôt que de les comparer sur ce qu'elles proposent individuellement pour pouvoir les départager. Ainsi, je ne recherche pas la meilleure solution mais celle qui répondra au mieux à nos besoins.
+
+\subsection{Mise en étude des solutions}
+
+J'ai monté les solutions suivantes après repérages et conseils pour commencer mon étude en cas pratique : Nagios, Centreon, Checkmk, Netdata et Zabbix. Je rappelle que mon objectif n'est pas d'aller rechercher les applications avancées de ces solutions mais de voir comment celles-ci répondraient à nos besoins, voir leurs intégrations pour les étudier ensuites.
+\\ \\
+J'ai essayé pour chacune de comprendre l'idée générale derrière leur fonctionnement et d'observer leurs limites dans l'environnement dans lequel nous souhaitions les intégrer. J'espère toujours aujourd'hui avoir vu un maximum de choses utiles dans un temps restreint pour chacune, de ne pas avoir fait fausse route sur certaines de leurs fonctionnalités ou intégrations.
+
+\subsection{Point rapide sur chacune des solutions mises à l'épreuve}
+
+Nagios est une solution connue, stable, et extrêmement pratique dans sa gestion par ses fichiers \texttt{*.cfg}. Sa syntaxe est agréable, mais son talon d'Achille reste son interfaçage pour sa version Core : il a besoin de solutions externes. Des intégrations existent mais complexifient l'installation, déjà en vogue actuellement chez ADITU.
+\\ \\
+Centreon est un fork \textit{une copie est basée sur} de Nagios, intégrant les mêmes fonctionnalités avec un front-end \textit{interfaçage utilisateur} acceptable. Cependant, celui-ci restreint les intégrations propres possibles par son modèle de financement et ne correspond pas au cahier des charges demandé sur certains points...
+\\ \\
+Checkmk est aussi un fork de Nagios, mais pour moi celui-ci est trop jeune et pas assez déployé pour avoir sa place dans un milieu de production. On perd aussi beaucoup en simplicité en l'utilisant et de support par manque de communauté.
+\\ \\
+Netdata est un outil formidable pour de la surveillance en tant réel de charge, et il est même selon moi le meilleur pour de la métrologie. Cependant, il n'est pas fait pour de la supervision (scripts personnels, intégrations) ou de la remonté d'alertes (alerting).
+\\ \\
+Zabbix est l'entre-deux le plus intéressants : énormément d'intégrations, un modèle financier pas trop restrictif et une métrologie correcte. Il n'en reste cependant pas aussi simple que Nagios, où intégralement tout peut se faire intuitivement en lignes de commandes. Il répond à l'intégralité du cahier des charges, ce serait la solution à choisir basée sur les problèmes initiaux à répondre.

@@ -1,0 +1,61 @@
+\renewcommand{\figurename}{}
+\renewcommand{\tablename}{}
+\mychapter{R310 Gestion d'un système de bases de données (10h30)}{cap:r310} 
+\lhead{R310 Gestion d'un système de bases de données (10h30)}
+
+\vspace*{0.2cm}
+      \large
+      \href{\@orientadorPagina}{\color{black}Enseignant\\Mr. Stéphane Mascaron}\\
+\vspace*{0.5cm}
+
+Module le plus court abordé lors de cette première période. Celui-ci abordait les types de bases de données, leurs cas d'usage et leurs spécificités. Après un apprentissage théorique de l'histoire derrière leur utilisation, et de comment en choisir une en adéquation avec nos besoins; nous avons pris en main la BDD \textit{Base De Données} NoSQL MongoDB.
+
+\section{Caractérisation des bases de données les plus courantes}
+
+Après l'utilisation de fichiers texte pour le stockage d'informations, les bases de données ont émergées pour une utilisation plus sérieuse. Celles-ci ont évoluées au cours du temps, passant des bases de données relationnelles dites SQL \textit{Structured Query Language} à d'autres dites en graphes, en objet, ou en document...
+\\ \\
+Les bases de données peuvent être regroupées en deux catégories selon leur paradigme : les ACID \textit{Atomic, Consistent, Isolation, Durable} et les BASE \textit{Basically Available, Soft state, Eventual consistent}. Les premières bases de données étaient des relationnelles, respectant les principes d'ACID. Les plus récentes ont abandonnées ce modèle pour respecter les principes BASE.
+\\ \\
+Pour résumer les principes d'ACID, ils impliquent que pour une base de données, répartie sur plusieurs serveurs ou non, celle-ci doit retourner les mêmes valeurs chaques mêmes requêtes. Ce qui peut être problématique question performances, certains logiciels fonctionnent par ailleurs très bien sans des réponses exactes (sur Instagram, il n'est pas si grave que vous voyez 15'241 "j'aime" au lieu de 15'314).
+\\ \\
+L'\textbf{atomicité} suggère que chaque transaction est faite en entier ou pas du tout, la \textbf{consistance} que toutes les données écrites respectent les contraintes d’intégrités et que l’état de la base de données reste toujours valide, l'\textbf{isolation} qu'un échange en parallèle donne toujours le même résultat qu’un échange en série et la \textbf{durabilité} qu'une fois les données écrites elles le restent.
+\\ \\
+Les principes BASE ont vu émerger quatres grands types de bases de données : les BDD suivant le modèle d'une clé - une valeur pour de la grande sauvegarde sans structure, les BDD suivant la théorique des graphs pour faire des liens entre des objets; omniprésent comme BDD derrière les réseaux sociaux pour faire des liens entre des personnes, ceux à document suivant permettant un modèle extrêmement flexible de données, et celles à colonnes avantageuses pour de la corrélation de données. Ces bases de données sont aussi appelées NoSQL, en opposition aux bases de données relationnelles SQL/ACID.
+\\
+\begin{table}[h]
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Modèle     & Performance & Évolutivité & Flexibilité & Complexité & Fonctionnalité    \\ \hline \hline
+Clé/Valeur & Élevée      & Élevée      & Élevée      & Aucune     & Variable (aucune  \\ \hline
+Colonne    & Élevée      & Élevée      & Modérée     & Faible     & Minimale          \\ \hline
+Document   & Élevée      & Variable    & Élevée      & Faible     & Variable (faible) \\ \hline
+Graphe & Variable & Variable & Élevée & Grande & \begin{tabular}[c]{@{}l@{}}Théorie des graphs\end{tabular} \\ \hline
+\end{tabular}
+\caption{Tableau comparatif des BDD NoSQL}
+\end{table}
+
+\section{Prise en main de MongoDB}
+
+Une fois l'apprentissage théorique terminé, nous avons pris en main une base de donnée NoSQL orientée documents, MongoDB. En raison, nous avions déjà eu au semestre dernier un module dédié à l'apprentissage et la prise en main du language SQL.
+\\ \\
+MongoDB stocke des données au format BSON (JSON mais au format binaire). La structure de MongoDB se caratérise par ses trois couches.
+
+\begin{itemize}
+  \item Des \textbf{Databases} qui contiennent des \textbf{Collections}
+  \item Chaque \textbf{Collection} contient des \textbf{Documents}
+  \item Chaque \textbf{Document} est au format BSON, utilisé JSON, et contient des \textbf{Propritétés} (clé/valeur)
+\end{itemize}
+
+MongoDB est une base de donnée \textbf{sans schéma}, c'est-à-dire qu'un document peut avoir la structure qu'il souhaite. À contrario de SQL qui sont définis et obligatoires. Donc chaque collection peut avoir une forme différentes, leurs documents étant de compositions dissemblantes au fur et à mesure des insertions \& suppressions. La structure de donnée est donc assouplie, pouvant rajouter les types de données qu'on souhaite comparé aux SQL.
+\\ \\
+MongoDB apporte une souplesse impréssionnante par la structure de ses documents et une rapidité accrue. Cependant cela se paye par une corrélation des données (on ne peut pas effectuer les mêmes actions partout, on contrôle moins les données).
+\\ \\
+Dans sa forme la plus basique, MongoDB fonctionne comme un serveur simple avec un \textbf{mongo shell} pour contacter la Database hébergée. Il supporte le scaling horizontal (ajout de serveur) pour distribution de charge ou accessibilité multi-site avec synchronisation. L'équipe développant MongoDB a aussi mis en place une application WEB pour une visualisation des collections et documents d'un plus haut niveau.
+\\ \\
+Le mongo shell peut être utilisé selon la forme suivante : \\ \verb|<database>.<collection>.<fonction()>|, où la fonction est l'action demandée sur la collection. Par exemple, pour la base de donnée "db", et la collection exercices, nous pouvons lire les données d'une collection avec la fonction find : \verb|db.exercices.find()|. Nous avons été guidé en travaux pratiques pour prendre en main le mongo shell, pour des actions de bases sur une base de données MongoDB.
+\\ \\
+Pour l'administration de la base de donnée, pas que des appelles, l'utilitaire \textbf{mongosh} peut être utilisé. Exemple de commande pour lancé le shell de MongoDB avec le compte \verb|root| et le mot de passe \verb|azerty| sur la database admin (qui répertorie les utilisateurs admin) : \\ \verb|mongosh -u "root" -p "azerty" --authenticationDatabase "admin"|.
+
+\section{Aboutissants de l'apprentissage}
+
+Grâce à ce module, nous avons pu apprendre à différencier les types de bases de données et à savoir laquelle choisir selon nos besoins. Nous avons aussi vu l'administration et l'utilisation d'une base de donnée MongoDB. Toutes mes manipulations sur ce module sont retrouvables sur mon \href{https://github.com/xeylou/r310}{Github}. J'ai aussi créer un script d'installation automatisé d'une base de donnée MongoDB sur Debian12 toujours sur mon \href{https://gist.github.com/xeylou/ca01e4f17e6bbcc5e8bba042b37771d3}{Github}.

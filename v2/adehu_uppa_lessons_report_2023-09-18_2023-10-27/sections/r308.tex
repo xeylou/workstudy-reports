@@ -1,0 +1,40 @@
+\renewcommand{\figurename}{}
+\mychapter{R308 Consolidation de la programmation (27h)}{cap:r308}
+\lhead{R308 Consolidation de la programmation (27h)}
+
+\vspace*{0.2cm}
+      \large
+      \href{\@orientadorPagina}{\color{black}Enseignant\\Mr. Manuel Munier}\\
+\vspace*{0.5cm}
+
+Module portant sur la programmation avec le language Python, nous y avons revu les bases de la programmation séquentielle. L'exercice tendait à montrer que la lecture séquentielle d'un document (ligne par ligne), même en créant des fonctions ou en utilisant les méthodes des objets de base de Python; n'était pas forcément pas la meilleure manière de programmer selon le cas d'usage. Ainsi, nous avons abordé la POO \textit{\textbf{Programmation Orientée Objet}}.
+
+\section{Introduction à la programmation orientée objet}
+
+La POO, ou \textit{Programmation Orientée Objet}, est une autre approche de la programmation (paradigme), une manière d'aborder le code différemment. Celle-ci se caractérise par l'utilisation d'objets : un agencement de données et de code (une structure); pour définir un ensemble d'éléments réutilisables. Ainsi, pour un objet donné, plusieurs \textbf{instances} de celui-ci peuvent être générées. Chaque instance reprenant l'agencement du code défini. Les instances récupère le code et les données qui le constitue.
+\\ \\
+Les objets peuvent être comparés à du papier calque, reproduisant leur structure sur chaque instance pour faciliter leur génération, sans avoir à les régénérer à chaque fois.
+\\ \\
+Des fonctions peuvent être créées pour chaque objets, alors appelées des \textbf{méthodes}. Pour une méthode \verb|afficher_age(self)| crée de l'objet \verb|Personnes|, chaque instance pourra être appelée de la sorte : \verb|print(julien.afficher_age())| pour afficher l'âge d'une personne.
+\\ \\
+La POO, selon les cas d'usages, est une approche beaucoup plus propre pour agencer son code. Si l'on en trouve l'utilité, la POO est un outil très puissant pour répliquer ra
+
+\section{Cas d'usage de la POO}
+
+La POO est extrêmement utile pour s'assurer que chaque élément possède le même paterne, et que chaque instance puisse être appelée de la même manière. La POO est simple, et facilement intégrable sans son code une fois que nous en avons compris le fonctionnement et son utilisation dans Python.
+\\ \\
+Un cas d'usage générique pourrait être : \textit{Considérons l'objet "Personnes". Chaque instance de l'objet "Personnes" possédera le même paterne : un nom, un prénom, un âge... Celles-ci partageront aussi les mêmes méthodes} \verb|afficher_prenom()| \textit{et} \verb|afficher_nom()| \textit{qui retourneront leurs informations respectives, pour au mieux les intégrer à votre code (avec des conditions...).}\\- cette mise en situation provient de moi.
+
+\section{Utilisation avancée}
+
+ Un objet peut \textbf{hériter} des propriétés d'un autre objet, si besoin d'instancer deux types d'objets très similaires : pas besoin de créer deux fois deux objets similaires; juste de créer un objet global et d'en créer un deuxième héritant des propriétés du premier en modifiant certaines informations en les écrasant ou en les rajoutant.
+ \\ \\
+ Une méthode peut retourner une information d'une instance ou la modifier.
+ \\ \\
+ La POO est souvent utilisée pour la structuration avancée de données : arbre binaire de recherche notamment, notamment dans les cas où chaque donnée conservent globalement le même paterne.
+
+ \section{Aboutissants du module}
+
+ Ayant déjà abordé la POO auparavant, j'ai pu cette fois-ci l'intégrer dans des exercices plus complexes pour y découvrir des cas d'usages particuliers, que je n'aurais probablement pas soupçonné sans eux. Module très enrichissant pour sa manière d'aborder le code, son cheminement de pensées à avoir.
+ \\ \\
+ Tous les exercices que j'ai effectué, avec leur sujet, sont retrouvables sur mon \href{https://github.com/xeylou/r308}{Github}.

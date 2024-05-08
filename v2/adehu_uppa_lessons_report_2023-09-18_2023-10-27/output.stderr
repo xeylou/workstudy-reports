@@ -1,0 +1,8 @@
+ChkTeX v1.7.6 - Copyright 1995-96 Jens T. Berger Thielemann.
+Compiled with PCRE regex support.
+No errors printed; One warning printed; 2054 user suppressed warnings; No line suppressed warnings.
+See the manual for how to suppress some or all of these warnings/errors.
+Latexmk: Missing input file 'output.toc' (or dependence on it) from following:
+  No file output.toc.
+Latexmk: ====List of undefined refs and citations:
+  Label `fig:canal' multiply defined
