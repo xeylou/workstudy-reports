@@ -304,14 +304,14 @@ de Curso e Dissertacoes]
       \vspace*{0.3cm}%
       \large
       \href{\@orientadorPagina}{\color{black}\@orientadorNome}\\%
-      \normalsize \texttt{angel.abenia@univ-pau.fr} \\ % [Rian] Adicionado href
+      \normalsize \texttt{abenia@univ-pau.fr} \\ % [Rian] Adicionado href
       \vspace*{0.5cm}%
       \Large%
       %\ifthenelse{\boolean{orientadorDoisExiste}}{Orientadores:}{Tuteur :}%
       %\\
       %\vspace*{0.2cm}%
       %\large
-      %\href{\@orientadorPagina}{\color{black}Mr. Guillaume Devesa}\\%
+      %\href{\@orientadorPagina}{\color{black}M. Guillaume Devesa}\\%
 % [Rian] Adicionado href
       \@orientadorDoisNome\\
       \@orientadorTresNome\\
@@ -328,8 +328,12 @@ de Curso e Dissertacoes]
 %% Definição do comando FOLHA DE ROSTO
 %%------------------------------------------------------------------------------
 \newcommand{\folhaDeRosto}{
-    \newpage%
-    \thispagestyle{empty}%
+  \newpage
+  \thispagestyle{empty}
+  \mbox{}
+  \newpage
+  \newpage%
+  \thispagestyle{empty}%
     \begin{center}
         \Large
         \@autorNome\\
@@ -380,8 +384,11 @@ de Curso e Dissertacoes]
     \newpage%
     \thispagestyle{empty}%
     \ifthenelse{\boolean{tcc}}%
-        {Cet apprentissage en alternance a été réalisé dans le cadre de l'obtention d'un BUT en Réseaux \& Télécommunications à l'Université de Pau et des Pays de l'Adour, IUT de Mont-de-Marsan. La période d'alternance d'une durée de 2 ans s'est établie du 1er Septembre 2023 au 31 Août 2025 dans les locaux de ADITU, Technopole Izarbel Côte Basque, 64210 Bidart.\\ \\Aucune intelligence artificielle n'a été utilisée pour la rédaction ou l'aide à la production de ce document. Aucune information présente n'a été récupérée brute de forme depuis quelconque source, publique ou non. Ce document est le fruit d’un travail personnel et que je n’ai ni contrefait, ni falsifié, ni copié tout ou partie de l’œuvre d’autrui afin de la faire passer pour mienne. \\ \\ Rapport des enseignements à l'IUT UPPA 18/09/2023-10/27/2023 © 2024 by Alexis Déhu is licensed under CC BY-NC-ND 4.0 }%
+        {Cet apprentissage en alternance a été réalisé dans le cadre de l'obtention d'un BUT en Réseaux \& Télécommunications à l'Université de Pau et des Pays de l'Adour, IUT de Mont-de-Marsan. La période d'alternance d'une durée de 2 ans s'est établie du 1er Septembre 2023 au 31 Août 2025 dans les locaux de ADITU, Technopole Izarbel Côte Basque, 64210 Bidart.\\ \\Aucune intelligence artificielle n'a été utilisée pour la rédaction ou l'aide à la production de ce document. Aucune information présente n'a été récupérée brute de forme depuis quelconque source, publique ou non. Ce document est le fruit d’un travail personnel et que je n’ai ni contrefait, ni falsifié, ni copié tout ou partie de l’œuvre d’autrui afin de la faire passer pour mienne.}%
         {}%
+    \begin{center}
+      Alexis Rapport des enseignements à l'IUT UPPA du 18-09-2023 au 27-10-2023 © 2024 by \href{https://fr.linkedin.com/in/alexisdehu}{Alexis Déhu} is licensed under \href{https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1}{CC BY-NC-SA 4.0 }
+    \end{center}
     \begin{center}
         \normalsize%
         % 6 assinaturas: 0.7cm
@@ -425,13 +432,13 @@ de Curso e Dissertacoes]
             \vspace*{0.2cm}%
             \@examinadorPrefixo~\@examinadorNome~-~Directeur technique\\
             \vspace*{0.2cm}%
-            ~Mr. Valentin Creton~-~Administrateur systèmes et réseau\\
+            ~M. Valentin Creton~-~Administrateur systèmes et réseau\\
             \vspace*{0.2cm}%
-            ~Mr. David Alarcon~-~Administrateur systèmes et réseau\\
+            ~M. David Alarcon~-~Administrateur systèmes et réseau\\
             \vspace*{0.2cm}%
-            ~Mr. Charles-Henry Ploquin~-~Technicien informatique\\
+            ~M. Charles-Henry Ploquin~-~Technicien informatique\\
             \vspace*{0.2cm}%
-            ~Mr. Victor Dupas~-~Technicien informatique\\
+            ~M. Victor Dupas~-~Technicien informatique\\
             \@examinadorDepartamento\\
             \@examinadorInstituicao\\
         }{}

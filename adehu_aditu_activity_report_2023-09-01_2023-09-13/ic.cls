@@ -329,8 +329,12 @@ de Curso e Dissertacoes]
 %% Definição do comando FOLHA DE ROSTO
 %%------------------------------------------------------------------------------
 \newcommand{\folhaDeRosto}{
-    \newpage%
-    \thispagestyle{empty}%
+  \newpage
+  \thispagestyle{empty}
+  \mbox{}
+  \newpage
+  \newpage%
+  \thispagestyle{empty}%
     \begin{center}
         \Large
         \@autorNome\\
@@ -343,7 +347,7 @@ de Curso e Dissertacoes]
     \hfill%
     \begin{minipage}{ 11 cm }%
         \ifthenelse{\boolean{tcc}}%
-       {Le présent document est le compte rendu de mes activités au sein de l'entreprise ADITU pour la première période d'alternance allant du 01-09-2023 au 13-09-2023 en tant qu'Apprenti Administrateur Systèmes et Réseaux.}%-2023 au 13-07-2023 en tant qu'Apprenti Administrateur Systèmes et Réseaux.}%
+       {Le présent document est le compte rendu de mes activités et de mon apprentissage au sein de l'entreprise ADITU pour la première période de l'alternance allant du 01-09-2023 au 13-09-2023 (2 semaines) en tant qu'Apprenti Administrateur Systèmes et Réseaux.}%-2023 au 13-07-2023 en tant qu'Apprenti Administrateur Systèmes et Réseaux.}%
         {}%
     \end{minipage}%
     \begin{flushright}
@@ -381,8 +385,11 @@ de Curso e Dissertacoes]
     \newpage%
     \thispagestyle{empty}%
     \ifthenelse{\boolean{tcc}}%
-        {Cet apprentissage en alternance a été réalisé dans le cadre de l'obtention d'un BUT en Réseaux \& Télécommunications à l'Université de Pau et des Pays de l'Adour, IUT de Mont-de-Marsan. La période d'alternance d'une durée de 2 ans s'est établie du 1er Septembre 2023 au 31 Août 2025 dans les locaux de ADITU, Technopole Izarbel Côte Basque, 64210 Bidart.\\ \\Aucune intelligence artificielle n'a été utilisée pour la rédaction ou l'aide à la production de ce document. Aucune information présente n'a été récupérée brute de forme depuis quelconque source, publique ou non. Ce document est le fruit d’un travail personnel et que je n’ai ni contrefait, ni falsifié, ni copié tout ou partie de l’œuvre d’autrui afin de la faire passer pour mienne. \\ \\ Rapport d'activités en entreprise ADITU 01/09/2023-13/09/2023 © 2024 by Alexis Déhu is licensed under CC BY-NC-ND 4.0 }%
+        {Cet apprentissage en alternance a été réalisé dans le cadre de l'obtention d'un BUT en Réseaux \& Télécommunications à l'Université de Pau et des Pays de l'Adour, IUT de Mont-de-Marsan. La période d'alternance d'une durée de 2 ans s'est établie du 1er Septembre 2023 au 31 Août 2025 dans les locaux de ADITU, Technopole Izarbel Côte Basque, 64210 Bidart.\\ \\Aucune intelligence artificielle n'a été utilisée pour la rédaction ou l'aide à la production de ce document. Aucune information présente n'a été récupérée brute de forme depuis quelconque source, publique ou non. Ce document est le fruit d’un travail personnel et que je n’ai ni contrefait, ni falsifié, ni copié tout ou partie de l’œuvre d’autrui afin de la faire passer pour mienne.}%
         {}%
+    \begin{center}
+        Alexis Rapport d'apprentissage en entreprise ADITU du 01-09-2023 au 13-09-2023 © 2024 by \href{https://fr.linkedin.com/in/alexisdehu}{Alexis Déhu} is licensed under \href{https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1}{CC BY-NC-SA 4.0 }
+    \end{center}
     \begin{center}
         \normalsize%
         % 6 assinaturas: 0.7cm
