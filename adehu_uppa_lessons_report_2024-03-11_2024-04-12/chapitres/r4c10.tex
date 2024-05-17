@@ -1,0 +1,43 @@
+\renewcommand{\figurename}{}
+\mychapter{R4Cyber.10 Cryptographie (10h30)}{cap:r4c10} 
+\lhead{R4Cyber.10 Cryptographie (10h30)}
+
+\vspace*{0.2cm}%
+      \large
+      \href{}{\color{black}Enseignant\\M. Laurent Gallon}\\%
+      \normalsize
+\vspace*{0.5cm}%
+
+% algorithmes de cryptographie
+% fonctions de hashage
+% chaîne PKI
+
+Ce module nous a plongé dans la compréhension des fondamentaux de la cryptographie, à l'intérieur du chiffrement de nos données. Nous y avons abordé les principes d'authenticité, de confidentialité et d'intégrité des informations transférées lors d'un échange.
+\\ \\
+La cryptologie a été abordée via une approche scientifique et mathématiques théoriques dans un premier temps, puis par une approche pratique avec une application dans un système de messagerie et de connexion à des machines distantes sécurisée.
+
+\section{Enseignements théoriques}
+
+% algorithmes de cryptographie
+% fonctions de hashage
+% chaîne PKI
+
+% rsa
+% dh
+
+Lors des travaux pratiques et des cours magistraux, nous avons vu les schémas de fonctionnement des algorithmes courants de cryptographie, des fonctions de hachage et de la chaîne PKI.
+\\ \\
+Nous avons étudié les protocoles RSA et Diffie-Hellman pour nous intéresser à la cryptographie.  Le premier de la famille des clés symétriques et le deuxième des asymétriques, leur objectif commun est de former un couple de clés (distrinctes pour l'asymétrique, identiques pour la symétrique) que seuls les communiquant connaîtront et utiliseront pour s'échanger des informations.
+\\ \\
+Problème de la clé symétrique : on ne peut pas distinguer l'une personne de l'autre utilisant la clé. Ainsi, la paire de clés asymétriques permet une authentification de l'expéditeur du message, utilisant sa clé unique privée pour chiffre son message que le ou les réceptionneurs pourront déchiffrer s'ils ont en leur possession une clé dite "publique" que tout le monde pourra utiliser pour ouvrir le message chiffré.
+\\ \\
+Le système de chiffrement asymétrique est notamment utilisant lors de vos navigations WEB pour être certain de l'identité de \texttt{google.com} par exemple : tout le monde est en possession de la clé publique sur leur navigateur mais uniquement \texttt{google}, qui lui seul possède sa clé privée, pourra initier un échange chiffré (et non un autre site usurpateur).
+
+\subsection{Application dans le monde réel}
+
+Nous avons appliqué les concepts dans le cadre de chiffrement de courriels entre deux adresses. En effet, toujours en suivant le principe des clés asymétriques : nous avons vérifié l'authenticité de l'expéditeur, l'authenticité du message mais aussi son intégrité en vérifiant son empreinte.
+\\ \\
+La vérification de l'empreinte permet de vérifier si le message a été modifié en cours de route. Cependant, celui-ci ne doit pas être modifié lui aussi... C'est pour cela que lui aussi est chiffré avec le message pour que le destinataire en déchiffrant le message puisse le comparer à son empreinte et être certain de son intégrité.
+
+% messagerie sécurisée
+% connexion à des machines à distance

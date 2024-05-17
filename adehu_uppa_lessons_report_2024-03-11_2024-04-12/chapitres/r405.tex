@@ -1,6 +1,6 @@
 \renewcommand{\figurename}{}
-\mychapter{R4.05 Automatisation des tâches d'administration (18h)}{cap:r405} 
-\lhead{R4.05 Automatisation des tâches d'administration (18h)}
+\mychapter{R4.05 Automatisation des tâches d'administration (7h30)}{cap:r405} 
+\lhead{R4.05 Automatisation des tâches d'administration (7h30)}
 
 \vspace*{0.2cm}%
       \large
@@ -9,6 +9,7 @@
 \vspace*{0.5cm}%
 
 % préciser que repris prochaine période
+
 
 Initié cette période mais finalisé celle suivante, ce module abordait l'automatisation de nos tâches d'administration systèmes et réseaux. Ainsi, nous avons montés des infrastructures sur lesquels nous avons utilisé des API, des scripts ou du code pour effectuer en une manipulations des actions qui auraient été répétitives et longues si faites manuellement sur chaque équipement.
 \\ \\
@@ -20,13 +21,13 @@ Plusieurs outils nous ont permis d'automatiser nos tâches : des API et des int�
 
 % netconf, restconf, python, ansible, chef, puppet
 
-\section{les API}
+\section{Principde de fonctionnement des API}
 
 Les API sont des interface exposées à l'extérieur d'une machine, que l'on peut appeler pour lui demander d'effectuer une ou plusieurs manipulations en interne. Ainsi, en donnant une suite d'instruction à faire à une API, celle-ci pourra l'appliquer à l'équipement et nous en renvoyer le résultat.
 \\ \\
 L'intérêt des API est de pouvoir être appelées par différent supports (différents langages de programmations, solutions, programmes, humains ou non) et de permettre une réplication de l'instruction à d'autres équipements (un programme va contacter 100 équipements où il faut changer une information).
 
-\subsection{Des intégrations}
+\subsection{Intégrations que nous en avons fait}
 
 Nous avons aussi manipuler des intégrations de protocoles que nous utilisions déjà. Nous avions l'habitude d'ouvrir une session de connexion à distance SSH à nos machines pour leur renseigner des actions à effectuer pour changer leur état. Aujourd'hui, nous pouvons générer du code informatique qui va lui-même aller le renseigner à différentes machines et nous renvoyer le résultat.
 \\ \\

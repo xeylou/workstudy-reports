@@ -1,0 +1,60 @@
+\renewcommand{\figurename}{}
+\mychapter{R4.02 Transmissions avancées (24h)}{cap:r402} 
+\lhead{R4.02 Transmissions avancées (24h)}
+
+\vspace*{0.2cm}%
+      \large
+      \href{}{\color{black}Enseignant\\M. Christophe Baillot}\\%
+      \normalsize
+\vspace*{0.5cm}%
+
+% pour sûr
+% Les émetteurs-récepteurs de systèmes modernes (filtres numériques)
+%% modulation IQ, application physique et mathématique
+% Gestion des chemins multiples dans les airs
+%% sauts de fréquences 2G
+
+
+
+% metteur récépteur antennes
+% mimo
+% ofdm
+% super hétérodyne,, 0IF
+% cdma
+
+Module d'enseignement portant sur la physique des télécommunications, nous y avons abordé les prémices des notions relatives à la transmission sur antennes pour de la radiophonie, de la téléphonie et des données (Wi-Fi...).
+\\ \\
+Pour cela, nous avons revu les systèmes d'émission et réception sur des systèmes modernes par les filtres numériques; et plus particulièrement en abordant dans les domaines mathématique et physique le fonctionnement de la modulation IQ.
+\\ \\
+Par la suite, nous avons commencé à voir les problématiques liées à l'utilisation de l'espace comme support de transmission. Nous y avons premièrement abordé la problématique des chemins multiples d'une onde dans un milieu urbain, ainsi que les technologies qui ont permis de s'en prémunir.
+\\ \\
+La suite de ce module fut celui R4.03, où nous continuions notre avancée prise par l'apprentissage sur ce module.
+
+\section{Les émetteurs-récepteurs de systèmes modernes (filtres numériques)}
+
+Pour revoir les émissions et les réceptions théoriquement, nous avons abordé de manière poussée la modulation IQ. En effet, la modulation permet à une suite d'information d'être modifiée pour mieux circuler sur son support (ici, l'air).
+\\ \\
+La modulation IQ elle se sert de la phase d'un signal pour définir ses états significatifs (0, 1; ou 00, 01, 11...) que l'on devra discerner à la réception pour interpréter le signal, et retrouver les informations.
+\\ \\
+Dans cette optique, nous avons d'abord étudié physiquement le schéma comportemental de l'émission sur modulateur IQ, en représentant dans l'espace des fréquences et du temps le signal à différents endroit du dispositif.
+\\ \\
+Nous avons par la suite caractérisé mathématiquement la raison du comportement du signal à ces emplacements, suite de multiplication par des sinusoïdes à l'envoi et la réception.
+\\ \\
+En conséquent, nous avons étudié en profondeur le fonctionnement et la mathématique d'un système de transmission en télécoms, la modulation IQ. Extrêmement enrichissant et contingent à la compréhension des composant d'un système (filtres, amplificateurs, mélangeurs, oscillateurs locaux...).
+
+\section{Gestion des problématique des télécoms dans les airs}
+
+Chaque support de transmission a ses avantages et ses inconvénients, l'air ne faisant exception. Nous avons commencé à aborder une des problématiques majeures que procure l'air à son utilisation : une onde se propage librement dans l'air, si relief urbain celle-ci peut rebondir sur les bâtiments et revenir à la réception plusieurs fois dû au temps des différents trajets qu'elle aura emprunté.
+\\ \\
+Le problème des trajets multiples a été contré dès la 2G avec les sauts de fréquences (FHSS, 1 message une fréquence et on tourne), avec de l'étalement de spectre CDMA pour la 3G et l'OFDM avec son attente pour la 4G.
+\\ \\
+Nous avons étudié ces trois technologies, leurs fonctionnement évolutions et avantages au fil du temps, sur le plans physiques notamment. Nous avons aussi entrevu la CDMA utilisé sur du Wi-Fi, Wimax et 5G.
+
+
+% En effet, nous avons premièrement étudié les notions d'émetteurs-récepteurs superhétérodyne et 0 IF. Nous y avons vu la composition des émetteurs et des récepteurs dit superhétérodynes, mélangeant le sinus et le cosinus d'un signal pour l'émetteur et les transposer sur une même fréquence intermédiaire, pour la récupérer côté récepteur et dissocier le signal sinus et cosinus en remélangant par les mêmes fréquences.
+% \\ \\
+% Pour le récépteur sans fréquence image (0 IF), le principe est de sous échantilloner de telle sorte que les deux fréquences réçues se retrouve à s'amplifier en 0 Hz.
+% \\ \\
+% Nous avons aussi abordé le multiplexage fréquentiel avec le CDMA \textit{accès multiple par répartition en code }. Nous avons aussi abordé l'OFDM utilisé en 4G; permettant de chevaucher des fréquences dans un spectre (à interval extrêmement précis) sans que celles-ci ne se perturbent : ce qui permet d'envoyer la même quantité d'informations dans une largeur spectrale réduite.
+% \\ \\
+% Nous avons aussi étudié la technologie MIMO en s'appuyant sur les avantages d'utiliser de la diversité d'antennes (pour mieux recevoir un signal en se servant du nombre d'antennes pour diminuer le rapport signal sur bruit) ou du multiplexage spatial (utiliser plusieurs antennes pour envoyer plusieurs informations, qu'on doit pouvoir décorreler entre chacune d'entre elles).

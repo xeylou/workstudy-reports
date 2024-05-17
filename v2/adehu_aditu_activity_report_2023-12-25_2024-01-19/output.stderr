@@ -1,5 +1,0 @@
-ChkTeX v1.7.6 - Copyright 1995-96 Jens T. Berger Thielemann.
-Compiled with PCRE regex support.
-No errors printed; No warnings printed; 280 user suppressed warnings; No line suppressed warnings.
-Latexmk: Missing input file 'output.toc' (or dependence on it) from following:
-  No file output.toc.

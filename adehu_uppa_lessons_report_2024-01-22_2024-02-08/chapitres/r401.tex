@@ -8,18 +8,24 @@
       \normalsize
 \vspace*{0.5cm}%
 
-Présent dans le tronc commun mais faisant appel aux notions de notre parcours Cybersécurité, le module Infrastructures de sécurité nous a plongé dans le fonctionnement des chiffrements de nos données et à la découverte des équipements et des principes de sécurité permettant la sécurisation de nos transmissions et des infrastrctures.
+Présent dans le tronc commun mais faisant appel aux notions de notre parcours Cybersécurité, le module Infrastructures de sécurité nous a plongé dans le fonctionnement des chiffrements de nos données et à la découverte des équipements et des principes de sécurité permettant la sécurisation de nos transmissions et des infrastructures.
 \\ \\
 Ainsi, nous avons abordés l'ensemble des informations permettant la compréhension des mécanismes de filtrage et de contrôle des accès d'un réseau, les bases de la cryptographie, ainsi que les services, applications et infrastructures pour la sécurité.
 
 \section{Enseignement et manipulation de pare-feux}
 
-Nous avons pu voir en détail les métholodologies d'approche des règles d'un pare-feux, à mémoire d'états ou non. Un pare-feu se définit comme un équipement régissant les flux d'accès dans un réseau : telle personne a le droit d'accéder à cette ressource, celle-ci ne doit pas y accéder ou n'a pas besoin de cet accès...
+Nous avons pu voir en détail les méthodologies d'approche des règles d'un pare-feux, à mémoire d'états ou non. Un pare-feu se définit comme un équipement régissant les flux d'accès d'un réseau : telle personne a le droit d'accéder à telle ressource, celle-ci ne doit pas y accéder ou n'a pas besoin de tel accès...
 \\ \\
-Un pare-feu matériel n'est pas à confondre avec un pare-feu logiciel comme présent sur vos ordinateurs; ceux-ci régissent les activités des programmes installés sur vos machines, un équipement pare-feu régit l'activité d'un réseau pour gérer les flux et les accès.
+Un pare-feu matériel n'est pas à confondre avec un pare-feu logiciel, comme présent sur vos ordinateurs. Ces pare-feux logiciels régissent les activités des programmes installés sur votre machine, un réel équipement pare-feu régit l'activité sur votre réseau pour gérer les flux et les accès des machines.
 \\ \\
-Dans cette vision, nous avons élaboré des stratégies de sécurisation d'entreprises à moyenne et grande échelle. Nous y avons vu la réflexion derrière la confection d'un tableau de gestion d'accès, et son implémentation sur une machine pare-feu GNU/Linux.
+Dans cette vision, nous avons élaboré des stratégies de sécurisation de réseaux d'entreprises à moyennes et grandes échelles. Nous y avons vu la réflexion à avoir lors de la confection d'un tableau de gestion d'accès, et sa mise en fonctionnement sur une machine pare-feu GNU/Linux.
 \\ \\
-Plusieurs notions avancées ont été couvert comme les DMZ \textit{zones démilitarisées} pour laisser une activité extérieure accéder à certaines ressources en dehors du réseau d'entreprise (dans le cas d'un hébergement dans les locaux d'un site WEB, d'une application métier...). Nous avons aussi couvert le NAT \textit{translatation d'adresses}, les ACL \textit{règles d'accès} et les firewall-proxy pour restreindre les applications dans leur fonctionnement sur le réseau.
+Plusieurs notions avancées ont été couvert comme les DMZ \textit{zones démilitarisées} d'un réseau pour laisser une activité extérieure accéder à certaines ressources dans l'entreprise (dans le cas d'un hébergement dans les locaux, un site WEB, partage de fichiers...). Nous avons aussi couvert le NAT \textit{translatation d'adresses} pour cette activité, les ACL \textit{règles d'accès} et les firewall-proxy pour restreindre les applications dans leur fonctionnement sur le réseau de manière plus affinée.
 \\ \\
-Nous avons ainsi mis en place lors de travaux pratiques une connexion multi-iste via un réseau d'opérateur avec un accès distant sécurisé, des services réseaux avancées; tout cela en mettant en place une politique de sécurisation et de contrôles d'accès via des firewall-proxy.
+Nous avons ainsi mis en place lors de travaux pratiques une connexion multi-sites via un réseau d'opérateur et un accès distant sécurisé, abordé des services réseaux avancées; tout cela en mettant en place une politique de sécurisation et de contrôles des accès du réseau via des firewall-proxy.
+
+\section{Infrastructure avec VPN}
+
+Dans la continuité de l'étude d'infrastructures de réseaux d'entreprises sécurisés, nous avons abordés les solutions de connexion à distance sécurisées : VPN.
+\\ \\
+Après avoir généré un plan d'adressage pour une entreprise, nous avons rajouté un accès dédié aux personnes extérieures, monté un tunnel VPN. Nous avons pour cela établi un modèle AAA \textit{authentification, autorisation, et traçabilité}, puis implémenté un tunnel IPSEC avec IKEv2 et ISAKMP.

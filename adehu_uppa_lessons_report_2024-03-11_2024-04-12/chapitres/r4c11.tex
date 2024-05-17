@@ -1,0 +1,23 @@
+\renewcommand{\figurename}{}
+\mychapter{R4Cyber.11 Sécurisation des services réseaux (16h30)}{cap:r4c11} 
+\lhead{R4Cyber.11 Sécurisation des services réseaux (16h30)}
+
+\vspace*{0.2cm}%
+      \large
+      \href{}{\color{black}Enseignant\\M. Jean-Jacques Bascou}\\%
+      \normalsize
+\vspace*{0.5cm}%
+
+% dnssec
+
+Nous avons étudié pour le module R4Cyber.11 des principes de sécurisation d'un protocole constamment utilisé mais protégé que tardivement : le protocole DNS.
+\\ \\
+Le protocole DNS sert à effectuer des résolutions de noms sur Internet. Pour donner un exemple, vous retenez le nom symbolique \texttt{youtube.com} pour accéder aux serveur de YouTube; et non pas les adresses IP des serveurs sur Internet. Les serveurs DNS servent à faire correspondre des noms symboliques à des adresses IP tangibles par vos machines.
+\\ \\
+Les noms symboliques fonctionnent par arborescence. Pour `www.univ-pau.fr`, en premier sera demandé le serveur DNS gérant \texttt{.fr} pour lui demander l'emplacement de \texttt{univ-pau} (l'adresse IP du serveur DNS gérant cette zone de sites), qui lui saura nous dire pour quelle adresse IP il possède un enregistrement pour \texttt{www}.
+\\ \\
+Ainsi, si les serveurs dirigeants vers les \texttt{.fr}, les \texttt{.com} etc. tomberaient en panne : plus personne ne saurait savoir où sont les sites sur Internet (à moins de déjà connaître leurs adresses). Pour ce faire, sont utilisés et connus 13 serveurs DNS dit racines, gérés par les plus grandes sociétés pour que la résolution des noms puissent toujours opérer sur Internet. Nous faisons confiance à la sécurité de ces 13 serveurs, leur disponibilité et leur véracité : mais quand est-il si l'on doit le faire pour nous ?
+\\ \\
+Ainsi, nous avons pu commencer à gérer notre zone DNS (par exemple \texttt{adehu.univ-pau.fr}) et la sécuriser avec DNSSEC; qui est une suite de bonnes pratiques pour sécuriser son installation DNS.
+\\ \\
+Ainsi, nous avons vu comment authentifier nos serveurs DNS entre eux pour éviter qu'une personne mal intentionnée puisse se faire passer pour un serveur DNS voulant redistribuer nos informations. Signer nos zones gérées en utilisant une information donnée par le serveur DNS supérieur (dans notre exemple du \texttt{adehu.univ-pau.fr}, j'utilise une information de \texttt{univ-pau} pour lui dire que je gère bien (et moi seul) \texttt{adehu.}.
