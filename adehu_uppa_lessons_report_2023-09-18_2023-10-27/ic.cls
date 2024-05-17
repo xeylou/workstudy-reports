@@ -346,7 +346,7 @@ de Curso e Dissertacoes]
     \hfill%
     \begin{minipage}{ 11 cm }%
         \ifthenelse{\boolean{tcc}}%
-       {Le présent document est le regroupement de mes enseignements à l'IUT de Mont-de-Marsan pour la période allant du 19-08-2023 au 27-10-2023 en deuxième année de BUT Réseaux et Télécommunications.}
+       {Le présent document est le regroupement de mes enseignements reçus à l'IUT de Mont-de-Marsan pour la période allant du 19-08-2023 au 27-10-2023 en deuxième année de BUT Réseaux et Télécommunications.}
         {}%
     \end{minipage}%
     \begin{flushright}
